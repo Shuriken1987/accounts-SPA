@@ -1,22 +1,10 @@
-// // localStorage.name = 'danilo';
-// alert(localStorage.name);
-window.addEventListener('beforeunload',save);
 
+window.addEventListener('beforeunload',save);
 
 let db = [];
 if (localStorage.db) {
     db = JSON.parse(localStorage.db);
-}
-
-// for (let i = 0; i < 1000; i++) {
-//     db.push({
-//         id: i,
-//         name: 'ime' + i,
-//         deposit: Math.floor(Math.random() * 1000),
-//         cCard: ['master','dina','visa'][Math.floor(Math.random() * 3)]
-//     })
-    
-// }
+}  
 
 let index = '';
 let tBody = document.querySelector('tbody');
@@ -54,19 +42,12 @@ function updateAccount() {
         deposit: editDeposit.value,
         cCard: editCcard.value
     }
-    // db[this.getAttribute('data-id')] = editedAccount;
-    // createTable();
-    // accounts();
-    // let index = db.findIndex(function(el){
-    //        return el.id == editedAccount.id;
-    // });
     db[index] = editedAccount;
     createTable();
     accounts();
 }
 
 function displayEditView() {
-    // let index = this.getAttribute('data-index');
     index = this.getAttribute('data-index');
     updateBtn.setAttribute('data-id', index);
     let accountId = this.getAttribute('data-id');
